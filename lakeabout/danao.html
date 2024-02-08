@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1.0">
+
+    <title>LAKES SPATIAL ANALYSIS</title>
+    <link rel="stylesheet" href="danao.css">
+</head>
+<body>
+    <header id="header">
+        <ul>
+            <li><a href="../main.html" class="active">Home</a></li>
+            <li><a href="../maps/prototype.io-main/index.html">Map</a></li>
+            <li><a href="../website2/index.html">Upload</a></li>
+            <div class="search-box">
+                <div class="row">
+                    <input type="search" value="" id="input-box" placeholder="Search Lake" 
+                    autocomplete="off" onchange="openPage()">
+                    <button><img src="../search.png" ></button>
+                </div>
+                <script>
+                    function openPage(){
+                        var answer = document.getElementById("input-box").value;
+
+
+
+                        let a2 = /baao/i
+                        let b2 = /Baao/i
+                        let c2 = /baao lake/i
+                        let d2 = /Baao lake/i
+                        let e2 = /baao Lake/i
+                        let f2 = /Baao Lake/i
+                        let g2 = /BAAO LAKE/i
+                        if (a2.test(answer)  || b2.test(answer) || c2.test(answer) || d2.test(answer) || e2.test(answer) || f2.test(answer) || g2.test(answer)){
+                            window.open("baao.html","_self");
+                        }
+
+                        let a3 = /buhi/i
+                        let b3 = /Buhi/i
+                        let c3 = /buhi lake/i
+                        let d3 = /Buhi lake/i
+                        let e3 = /buhi Lake/i
+                        let f3 = /Buhi Lake/i
+                        let g3 = /BUHI LAKE/i
+                        if (a3.test(answer)  || b3.test(answer) || c3.test(answer) || d3.test(answer) || e3.test(answer) || f3.test(answer) || g3.test(answer)){
+                            window.open("buhi.html","_self");
+                        }
+
+
+                        let a5 = /crater/i
+                        let b5 = /Crater/i
+                        let c5 = /crater lake/i
+                        let d5 = /Crater lake/i
+                        let e5 = /crater Lake/i
+                        let f5 = /Crater Lake/i
+                        let g5 = /CRATER LAKE/i
+                        if (a5.test(answer)  || b5.test(answer) || c5.test(answer) || d5.test(answer) || e5.test(answer) || f5.test(answer) || g5.test(answer)){
+                            window.open("crater.html","_self");
+                        }
+
+                        let a6 = /paoay/i
+                        let b6 = /Paoay/i
+                        let c6 = /paoay lake/i
+                        let d6 = /Paoay lake/i
+                        let e6 = /paoay Lake/i
+                        let f6 = /Paoay Lake/i
+                        let g6 = /PAOAY LAKE/i
+                        if (a6.test(answer)  || b6.test(answer) || c6.test(answer) || d6.test(answer) || e6.test(answer) || f6.test(answer) || g6.test(answer)){
+                            window.open("paoay.html","_self");
+                        }
+
+
+                        let a8 = /wood/i
+                        let b8 = /Wood/i
+                        let c8 = /wood lake/i
+                        let d8 = /Wood lake/i
+                        let e8 = /wood Lake/i
+                        let f8 = /Wood Lake/i
+                        let g8 = /WOOD LAKE/i
+                        if (a8.test(answer)  || b8.test(answer) || c8.test(answer) || d8.test(answer) || e8.test(answer) || f8.test(answer) || g8.test(answer)){
+                            window.open("wood.html","_self");
+                        }
+
+                        let a9 = /dapao/i
+                        let b9 = /Dapao/i
+                        let c9 = /dapao lake/i
+                        let d9 = /Dapao lake/i
+                        let e9 = /dapao Lake/i
+                        let f9 = /Dapao Lake/i
+                        let g9 = /DAPAO LAKE/i
+                        if (a9.test(answer)  || b9.test(answer) || c9.test(answer) || d9.test(answer) || e9.test(answer) || f9.test(answer) || g9.test(answer)){
+                            window.open("dapao.html","_self");
+                        }
+
+                        let a10 = /mapanuepe/i
+                        let b10 = /Mapanuepe/i
+                        let c10 = /mapanuepe lake/i
+                        let d10 = /Mapanuepe lake/i
+                        let e10 = /mapanuepe Lake/i
+                        let f10 = /Mapanuepe Lake/i
+                        let g10 = /MAPANUEPE LAKE/i
+                        if (a10.test(answer)  || b10.test(answer) || c10.test(answer) || d10.test(answer) || e10.test(answer) || f10.test(answer) || g10.test(answer)){
+                            window.open("mapanuepe.html","_self");
+                        }
+
+                        let a11 = /danao/i
+                        let b11 = /Danao/i
+                        let c11 = /danao lake/i
+                        let d11 = /Danao lake/i
+                        let e11 = /danao Lake/i
+                        let f11 = /Danao Lake/i
+                        let g11 = /DANAO LAKE/i
+                        if (a11.test(answer)  || b11.test(answer) || c11.test(answer) || d11.test(answer) || e11.test(answer) || f11.test(answer) || g11.test(answer)){
+                            window.open("danao.html","_self");
+                        }
+
+
+                      
+                    }
+                </script>
+                <div class="result-box">
+                    <ul>
+
+
+                    </ul>
+                </div>
+        </ul>
+    </header>
+    <img src="../icon2.png" alt="icon" class="logo"> 
+    
+    <Section>
+        <img src="/images/bird1.png" id="bird1">
+        <div class="bird2">
+            <img src="/images/bird2.png" id="bird2">
+        </div>
+        <img src="/images/forest1.png" id="forest">
+        <h2 id="text"><font color = "green">D</font>anao <font color="green">L</font>ake</h2>
+        
+        
+        <img src="../lakewater.png" id="water">
+    </Section>
+    
+    <div class="sec">
+        <h2>Lake Danao: Where Nature's Symphony Resides</h2>
+        <p>Lake Danao, a distinctive guitar-shaped body of water situated on Leyte Island in the Philippines, has a rich history and ecological significance. Originally named Lake Imelda, it was officially designated as a national park on June 2, 1972, under the presidential memorandum of then-President Ferdinand Marcos. Subsequently, it was rebranded as Lake Danao National Park on February 3, 1998, following Proclamation No. 1155. Today, it benefits from the protection granted by Republic Act No. 7586, also known as the National Integrated Protected Area System (NIPAS) Act of 1992.</p>
+        <br><br>
+        <p>This beautiful lake serves as a vital source of potable water for at least seven towns in Eastern Leyte, including the city of Tacloban. Moreover, it plays a crucial role in irrigating the surrounding ricelands in municipalities such as Dagami, Burauen, Pastrana, and Tabontabon.</p>
+        <br><br>
+        <p>Lake Danao's volcanic origins are evident in its geological history. It is likely a graben or a depression formed by the active Philippine Fault (or Leyte Central Fault), which traverses the lake area in a north-south direction. The rock formations encompass andesitic volcanic rocks of Quaternary origin in the western side, andesitic and dacitic volcanics dating back to the Miocene era in the southeastern portion, and intermediate volcanic sediments of Quaternary origin in the northeastern part of the lake. Adjacent to the lake, wetlands can be found, which might be remnants of the lake's larger, more extensive past. Over time, sedimentation has transformed this portion of the lake into its current configuration.</p>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+
+    </div>
+    <div id="lakeimages" data-mouse-down-at="0" data-prev-percentage="0">
+        <img class="image" src="https://images.unsplash.com/photo-1524781289445-ddf8f5695861?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" />
+        <img class="image" src="https://images.unsplash.com/photo-1610194352361-4c81a6a8967e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80" draggable="false" />
+        <img class="image" src="https://scontent.fmnl30-3.fna.fbcdn.net/v/t1.15752-9/395116214_362351272795848_8222489525190469804_n.png?_nc_cat=104&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeF94r_DPchLY_2bjPw4xmKaBAJIj2oY_DYEAkiPahj8NuZONxDLOmTMLi5u6UYMAPLXRWaGx0R3DlNml30dlesW&_nc_ohc=Jhrg_TK6FzgAX846Wc-&_nc_ht=scontent.fmnl30-3.fna&oh=03_AdTpCFsCZ9iIsAtLrqcMsxgbpvlj5RIa3yL6-UUZw8Gi3Q&oe=655CA9D9" draggable="false" />
+        <img class="image" src="https://images.unsplash.com/photo-1495805442109-bf1cf975750b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" />
+        <img class="image" src="https://images.unsplash.com/photo-1548021682-1720ed403a5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" />
+        <img class="image" src="https://images.unsplash.com/photo-1496753480864-3e588e0269b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2134&q=80" draggable="false" />
+        <img class="image" src="https://images.unsplash.com/photo-1613346945084-35cccc812dd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1759&q=80" draggable="false" />
+        <img class="image" src="https://images.unsplash.com/photo-1516681100942-77d8e7f9dd97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" />
+    </div>
+    <script src="danao.js"></script>
+    <script>
+        let text = document.getElementById('text');
+        let bird1 = document.getElementById('bird1');
+        let bird2 = document.getElementById('bird2');
+        let btn = document.getElementById('btn');
+        let rocks = document.getElementById('rocks');
+        let forest = document.getElementById('forest');
+        let water = document.getElementById('water');
+        let header = document.getElementById('header');
+        
+        window.addEventListener('scroll', function() {
+            let value = window.scrollY;
+            
+            text.style.top = 50 + value * -.1 + '%';
+            bird2.style.top = value * -1.5 + 'px';
+            bird2.style.left = value * 2 + 'px';
+            bird1.style.top = value * -1.5 + 'px';
+            bird1.style.left = value * -5 + 'px';
+            btn.style.marginTop = value * 1.5 + 'px';
+            rocks.style.top = value * -.12 + 'px';
+            forest.style.top = value * .25 + 'px';
+            header.style.top = value * .5 + 'px';
+        })
+    </script>
+    
+</body>
+</body>
+</html>
+
