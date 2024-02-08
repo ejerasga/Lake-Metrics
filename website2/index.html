@@ -1,0 +1,859 @@
+
+<head>
+	<title>Lake Metrics</title>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/async/3.2.0/async.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.6/tailwind.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="Lakespics.css">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+
+<body>
+	<form id="inputForm">
+		<div class="header">
+			<div class="header__grid">
+				<div>
+					<label class="header__label" for="model">Model</label>
+					<input class="input" type="text" id="model" />
+				</div>
+				<div>
+					<label class="header__label" for="version">Version</label>
+					<input class="input" type="number" id="version" />
+				</div>
+				<div>
+					<label class="header__label" for="api_key">API Key</label>
+					<input class="input" type="text" id="api_key" />
+				</div>
+			</div>
+		</div>
+      
+		<div class="content">
+			<div class="content__grid">
+				<div class="col-12-s6-m4" id="method">
+					<label class="input__label">Upload Method</label>
+					<div>
+						<button data-value="upload" id="computerButton" class="bttn left fill active">Upload</button>
+						<button data-value="url" id="urlButton" class="bttn right fill">URL</button>
+					</div>
+				</div>
+
+				<div class="col-12-m8" id="fileSelectionContainer">
+					<label class="input__label" for="file">Select File</label>
+					<div class="flex">
+						<input class="input input--left flex-1" type="text" id="fileName" disabled />							
+						<button id="fileMock" class="bttn right active">Browse</button>
+					</div>
+					<input style="display: none;" type="file" id="file" />
+				</div>
+
+				<div class="col-12-m8" id="urlContainer">
+					<label class="input__label" for="file">Enter Image URL</label>
+					<div class="flex">
+						<input type="text" id="url" placeholder="https://path.to/your.jpg" class="input"/><br>
+					</div>
+				</div>
+        
+				<div class="col-12-m6">
+					<label class="input__label" for="classes">Filter Classes</label>
+					<input type="text" id="classes" placeholder="Enter class names" class="input"/><br>
+					<span class="text--small">Separate names with commas</span>
+				</div>
+
+				<div class="col-6-m3 relative">
+					<label class="input__label" for="confidence">Min Confidence</label>
+					<div>
+						<i class="fas fa-crown"></i>
+						<span class="icon">%</span>
+						<input type="number" id="confidence" value="50" max="100" accuracy="2" min="0" class="input input__icon"/></div>
+					</div>
+				<div class="col-6-m3 relative">
+					<label class="input__label" for="overlap">Max Overlap</label>
+					<div>
+						<i class="fas fa-object-ungroup"></i>
+						<span class="icon">%</span>
+						<input type="number" id="overlap" value="50" max="100" accuracy="2" min="0" class="input input__icon"/></div>
+				</div>
+				<div class="col-6-m3" id="format">
+					<label class="input__label">Inference Result</label>
+					<div>
+						<button id="imageButton" data-value="image" class="bttn left fill active">Image</button>
+						<button id="jsonButton" data-value="json" class="bttn right fill">JSON</button>
+					</div>
+				</div>
+				<div class="col-12 content__grid" id="imageOptions">
+					<div class="col-12-s6-m4" id="labels">
+						<label class="input__label">Labels</label>
+						<div>
+							<button class="bttn left active">Off</button>
+							<button data-value="on" class="bttn right">On</button>
+						</div>
+					</div>
+					<div class="col-12-s6-m4" id="stroke">
+						<label class="input__label">Stroke Width</label>
+						<div>
+							<button data-value="1" class="bttn left active">1px</button>
+							<button data-value="2" class="bttn">2px</button>
+							<button data-value="5" class="bttn">5px</button>
+							<button data-value="10" class="bttn right">10px</button>
+						</div>
+					</div>
+				</div>
+				<div>
+					<button class="lakesize" onclick="location.href='http://127.0.0.1:5000'">Measure Lake</button>
+				</div>
+				<div class="col-12">
+					<button type="submit" value="Run Inference" class="bttn__primary">Run Inference</button>
+
+				
+	
+					<div class="multilevel">
+
+						<div class="item">
+						<input type="checkbox" id="B"/>
+						<img src="../images/arrow.png" class="arrow"><label for="B">Lakes</label>
+						
+						<ul>
+							<li>
+								<div class="sub-item">
+									<input type="checkbox" id="Baao"/>
+									<img src="../images/arrow.png" class="arrow"><label for="Baao">Baao</label>
+								
+									<ul>
+										<li><div class="sub-item">
+											<input type="checkbox" id="baao1"/>
+											<img src="../images/arrow.png" class="arrow"><label for="baao1">Dates</label>
+											
+											<ul>
+												<img id="baaoid" src="../images/transparent.png" style="position:absolute;
+												width:640px;
+												height:640px;
+												top: 44px;
+												z-index: 1;
+												right: 650;
+												opacity: 0.5;
+												opacity: 1;"/>
+
+												
+												<button onclick="baao2017()">2017</button><br><br>
+												<button onclick="baao2019()">2019</button><br><br>
+												<button onclick="baao2022()">2022</button><br><br>
+											
+												<script>
+													var img = document.getElementById("baaoid");
+													function baao2017(){
+														document.getElementById("baaoid").src = "../lakeimages/baao2017.png"
+													}
+													
+													function baao2019(){
+														document.getElementById("baaoid").src = "../lakeimages/baao2019.png"
+													}
+													
+													function baao2022(){
+														document.getElementById("baaoid").src = "../lakeimages/baao2022.png"
+													}
+												</script>
+											</ul>
+											
+										</div></li>
+										
+									</ul>
+								</div>
+							</li>
+							
+							<li><div class="sub-item">
+								<input type="checkbox" id="buhi"/>
+								<img src="../images/arrow.png" class="arrow"><label for="buhi">Buhi</label>
+								
+								<ul>
+									<li><div class="sub-item">
+										<input type="checkbox" id="buhi1"/>
+										<img src="../images/arrow.png" class="arrow"><label for="buhi1">Dates</label>
+										
+										<ul>
+											<img id="buhiimg" src="../images/transparent.png" style="position:absolute;
+											width:640px;
+											height:640px;
+											top: 44px;
+											z-index: 1;
+											right: 650px;
+											opacity: 0.5;
+											opacity: 1;"/>
+										
+											<button onclick="buhi2019()">2019</button><br><br>
+											<button onclick="buhi2020()">2020</button><br><br>
+											<button onclick="buhi2021()">2021</button><br><br>										
+											<script>
+												var img = document.getElementById("buhiimg");
+	
+												function buhi2019(){
+													document.getElementById("buhiimg").src = "../lakeimages/Buhi2019_Up.png"
+												}
+												function buhi2020(){
+													document.getElementById("buhiimg").src = "../lakeimages/Buhi2020_Up.png"
+												}
+												function buhi2021(){
+													document.getElementById("buhiimg").src = "../lakeimages/Buhi2021_Up.png"
+												}
+												
+												
+											</script>
+										</ul>
+									</div></li>
+								</ul>
+
+								<li><div class="sub-item">
+									<input type="checkbox" id="bunot"/>
+									<img src="../images/arrow.png" class="arrow"><label for="bunot">Bunot</label>
+									
+									<ul>
+										<li><div class="sub-item">
+											<input type="checkbox" id="bunot1"/>
+											<img src="../images/arrow.png" class="arrow"><label for="bunot1">Dates</label>
+											
+											<ul>
+												<img id="bunotimg" src="../images/transparent.png" style="position:absolute;
+												width:640px;
+												height:640px;
+												top: 44px;
+												z-index: 1;
+												right: 650px;
+												opacity: 0.5;
+												opacity: 1;"/>
+											
+												<button onclick="bunot2017()">2017</button><br><br>
+												<button onclick="bunot2019()">2019</button><br><br>								
+												<script>
+													var img = document.getElementById("bunotimg");
+		
+													function bunot2017(){
+														document.getElementById("bunotimg").src = "../lakeimages/bunot2017.png"
+													}
+													function bunot2019(){
+														document.getElementById("bunotimg").src = "../lakeimages/bunot2019.png"
+													}
+													
+													
+												</script>
+											</ul>
+										</div></li>
+									</ul>
+							
+							</div></li>
+							<li><div class="sub-item">
+								<input type="checkbox" id="calibato"/>
+								<img src="../images/arrow.png" class="arrow"><label for="calibato">Calibato</label>
+								
+								<ul>
+									<li><div class="sub-item">
+										<input type="checkbox" id="calibato1"/>
+										<img src="../images/arrow.png" class="arrow"><label for="calibato1">Dates</label>
+										
+										<ul>
+											<img id="calibatoimg" src="../images/transparent.png" style="position:absolute;
+											width:640px;
+											height:640px;
+											top: 44px;
+											z-index: 1;
+											right: 650;
+											opacity: 0.5;
+											opacity: 1;"/>
+
+											<button onclick="calibato2017()">2017</button><br><br>
+											<button onclick="calibato2019()">2019</button><br><br>
+											<button onclick="calibato2022()">2022</button><br><br>
+																	
+											<script>
+												var img = document.getElementById("calibatoimg");
+
+												function calibato2017(){
+													document.getElementById("calibatoimg").src = "../lakeimages/calibato2017.png"
+												}
+												
+												function calibato2019(){
+													document.getElementById("calibatoimg").src = "../lakeimages/calibato2019.png"
+												}
+												function calibato2022(){
+													document.getElementById("calibatoimg").src = "../lakeimages/calibato2022.png"
+												}
+												
+												
+												
+											</script>
+										</ul>
+									</div></li>
+								</ul>
+
+							</div></li>
+							<li><div class="sub-item">
+								<input type="checkbox" id="crater"/>
+								<img src="../images/arrow.png" class="arrow"><label for="crater">Crater</label>
+								
+								<ul>
+									<li><div class="sub-item">
+										<input type="checkbox" id="crater1"/>
+										<img src="../images/arrow.png" class="arrow"><label for="crater1">Dates</label>
+										
+										<ul>
+											<img id="craterimg" src="../images/transparent.png" style="position:absolute;
+											width:640px;
+											height:640px;
+											top: 44px;
+											z-index: 1;
+											right: 650;
+											opacity: 0.5;
+											opacity: 1;"/>
+
+											<button onclick="crater2017()">2017</button><br><br>
+											<button onclick="crater2018()">2018</button><br><br>
+											<button onclick="crater2021()">2021</button><br><br>
+											<button onclick="crater2023()">2023</button><br><br>										
+											<script>
+												var img = document.getElementById("craterimg");
+
+												function crater2017(){
+													document.getElementById("craterimg").src = "../lakeimages/crater2017.png"
+												}
+												
+												function crater2018(){
+													document.getElementById("craterimg").src = "../lakeimages/crater2018.png"
+												}
+												function crater2021(){
+													document.getElementById("craterimg").src = "../lakeimages/crater2021.png"
+												}
+												function crater2023(){
+													document.getElementById("craterimg").src = "../lakeimages/crater2023.png"
+												}
+												
+												
+											</script>
+										</ul>
+									</div></li>
+								</ul>
+								
+							</div></li>
+							<li><div class="sub-item">
+								<input type="checkbox" id="danao"/>
+								<img src="../images/arrow.png" class="arrow"><label for="danao">Danao</label>
+								
+								<ul>
+									<li><div class="sub-item">
+										<input type="checkbox" id="danao1"/>
+										<img src="../images/arrow.png" class="arrow"><label for="danao1">Dates</label>
+										
+										<ul>
+											<img id="danaoimg" src="../images/transparent.png" style="position:absolute;
+											width:640px;
+											height:640px;
+											top: 44px;
+											z-index: 1;
+											right: 650px;
+											opacity: 0.5;
+											opacity: 1;"/>
+											
+											<button onclick="danao2022()">2022</button><br><br>
+											<button onclick="danao2023()">2023</button><br><br> 
+										
+											<script>
+												var img = document.getElementById("danaoimg");
+												
+												function danao2022(){
+													document.getElementById("danaoimg").src = "../lakeimages/danao2022.png"
+												}
+												function danao2023(){
+													document.getElementById("danaoimg").src = "../lakeimages/danao2023.png"
+												}
+											</script>
+										</ul>
+									</div></li>
+								</ul>
+								
+							</div></li>
+							<li><div class="sub-item">
+								<input type="checkbox" id="dapao"/>
+								<img src="../images/arrow.png" class="arrow"><label for="dapao">Dapao</label>
+								
+								<ul>
+									<li><div class="sub-item">
+										<input type="checkbox" id="dapao1"/>
+										<img src="../images/arrow.png" class="arrow"><label for="dapao1">Dates</label>
+										
+										<ul>
+											<img id="dapaoimg" src="../images/transparent.png" style="position:absolute;
+											width:640px;
+											height:640px;
+											top: 44px;
+											z-index: 1;
+											right: 650px;
+											opacity: 0.5;
+											opacity: 1;"/>
+											<button onclick="dapao2017()">2017</button><br><br>
+											<button onclick="dapao2018()">2018</button><br><br>
+											<button onclick="dapao2019()">2019</button><br><br>
+											<button onclick="dapao2020()">2020</button><br><br>
+											<button onclick="dapao2022()">2022</button><br><br>
+											<button onclick="dapao2023()">2023</button><br><br> 
+										
+											<script>
+												var img = document.getElementById("dapaoimg");
+												function dapao2017(){
+													document.getElementById("dapaoimg").src = "../lakeimages/dapao2017.png"
+												}
+												function dapao2018(){
+													document.getElementById("dapaoimg").src = "../lakeimages/dapao2018.png"
+												}
+												function dapao2019(){
+													document.getElementById("dapaoimg").src = "../lakeimages/dapao2019.png"
+												}
+												function dapao2020(){
+													document.getElementById("dapaoimg").src = "../lakeimages/dapao2020.png"
+												}
+												
+												function dapao2022(){
+													document.getElementById("dapaoimg").src = "../lakeimages/dapao2022.png"
+												}
+												function dapao2023(){
+													document.getElementById("dapaoimg").src = "../lakeimages/dapao2023.png"
+												}
+											</script>
+										</ul>
+									</div></li>
+								</ul>
+								
+							</div></li>
+							<li><div class="sub-item">
+								<input type="checkbox" id="laguna"/>
+								<img src="../images/arrow.png" class="arrow"><label for="laguna">Laguna</label>
+								
+								<ul>
+									<li><div class="sub-item">
+										<input type="checkbox" id="laguna1"/>
+										<img src="../images/arrow.png" class="arrow"><label for="laguna1">Dates</label>
+										
+										<ul>
+											<img id="lagunaimg" src="../images/transparent.png" style="position:absolute;
+											width:640px;
+											height:640px;
+											top: 44px;
+											z-index: 1;
+											right: 650;
+											opacity: 0.5;
+											opacity: 1;"/>
+											<button onclick="laguna2017()">2017</button><br><br>
+											<button onclick="laguna2018()">2018</button><br><br>
+											<button onclick="laguna2019()">2019</button><br><br>
+											<button onclick="laguna2020()">2020</button><br><br>
+										
+											<script>
+												var img = document.getElementById("lagunaimg");
+												function laguna2017(){
+													document.getElementById("lagunaimg").src = "../lakeimages/laguna2017.png"
+												}
+												function laguna2018(){
+													document.getElementById("lagunaimg").src = "../lakeimages/laguna2018.png"
+												}
+												function laguna2019(){
+													document.getElementById("lagunaimg").src = "../lakeimages/laguna2019.png"
+												}
+												function laguna2020(){
+													document.getElementById("lagunaimg").src = "../lakeimages/laguna2020.png"
+												}
+											</script>
+										</ul>
+									</div></li>
+								</ul>
+								
+							</div></li>
+							<li><div class="sub-item">
+								<input type="checkbox" id="mapanuepe"/>
+								<img src="../images/arrow.png" class="arrow"><label for="mapanuepe">Mapanuepe</label>
+								
+								<ul>
+									<li><div class="sub-item">
+										<input type="checkbox" id="mapanuepe1"/>
+										<img src="../images/arrow.png" class="arrow"><label for="mapanuepe1">Dates</label>
+										
+										<ul>
+											<img id="mapanuepeimg" src="../images/transparent.png" style="position:absolute;
+											width:640px;
+											height:640px;
+											top: 44px;
+											z-index: 1;
+											right: 650px;
+											opacity: 0.5;
+											opacity: 1;"/>
+											<button onclick="mapanuepe2017()">2017</button><br><br>
+											<button onclick="mapanuepe2018()">2018</button><br><br>
+											<button onclick="mapanuepe2020()">2020</button><br><br>
+											<button onclick="mapanuepe2021()">2021</button><br><br>
+											<button onclick="mapanuepe2022()">2022</button><br><br>
+											<button onclick="mapanuepe2023()">2023</button><br><br> 
+										
+											<script>
+												var img = document.getElementById("mapanuepeimg");
+												function mapanuepe2017(){
+													document.getElementById("mapanuepeimg").src = "../lakeimages/mapanuepe2017.png"
+												}
+												function mapanuepe2018(){
+													document.getElementById("mapanuepeimg").src = "../lakeimages/mapanuepe2018.png"
+												}
+												
+												function mapanuepe2020(){
+													document.getElementById("mapanuepeimg").src = "../lakeimages/mapanuepe2020.png"
+												}
+												function mapanuepe2021(){
+													document.getElementById("mapanuepeimg").src = "../lakeimages/mapanuepe2021.png"
+												}
+												function mapanuepe2022(){
+													document.getElementById("mapanuepeimg").src = "../lakeimages/mapanuepe2022.png"
+												}
+												function mapanuepe2023(){
+													document.getElementById("mapanuepeimg").src = "../lakeimages/mapanuepe2023.png"
+												}
+											</script>
+										</ul>
+									</div></li>
+								</ul>
+								
+							</div></li>
+							<li><div class="sub-item">
+								<input type="checkbox" id="muhikap"/>
+								<img src="../images/arrow.png" class="arrow"><label for="muhikap">Muhikap</label>
+								
+								<ul>
+									<li><div class="sub-item">
+										<input type="checkbox" id="muhikap1"/>
+										<img src="../images/arrow.png" class="arrow"><label for="muhikap1">Dates</label>
+										
+										<ul>
+											<img id="muhikapimg" src="../images/transparent.png" style="position:absolute;
+											width:640px;
+											height:640px;
+											top: 44px;
+											z-index: 1;
+											right: 650px;
+											opacity: 0.5;
+											opacity: 1;"/>
+											<button onclick="muhikap2019()">2019</button><br><br>
+											<button onclick="muhikap2022()">2022</button><br><br>
+										
+											<script>
+												var img = document.getElementById("muhikapimg");
+												function muhikap2019(){
+													document.getElementById("muhikapimg").src = "../lakeimages/muhikap2019.png"
+												}
+												function muhikap2022(){
+													document.getElementById("muhikapimg").src = "../lakeimages/muhikap2022.png"
+												}
+											</script>
+										</ul>
+									</div></li>
+								</ul>
+								
+							</div></li>
+							<li><div class="sub-item">
+								<input type="checkbox" id="palakpakin"/>
+								<img src="../images/arrow.png" class="arrow"><label for="palakpakin">Palakpakin</label>
+								
+								<ul>
+									<li><div class="sub-item">
+										<input type="checkbox" id="palakpakin1"/>
+										<img src="../images/arrow.png" class="arrow"><label for="palakpakin1">Dates</label>
+										
+										<ul>
+											<img id="palakpakinimg" src="../images/transparent.png" style="position:absolute;
+											width:640px;
+											height:640px;
+											top: 44px;
+											z-index: 1;
+											right: 650px;
+											opacity: 0.5;
+											opacity: 1;"/>
+											<button onclick="palakpakin2019()">2019</button><br><br>
+											<button onclick="palakpakin2022()">2022</button><br><br>
+										
+											<script>
+												var img = document.getElementById("palakpakinimg");
+												function palakpakin2019(){
+													document.getElementById("palakpakinimg").src = "../lakeimages/palakpakin2019.png"
+												}
+												function palakpakin2022(){
+													document.getElementById("palakpakinimg").src = "../lakeimages/palakpakin2022.png"
+												}
+											</script>
+										</ul>
+									</div></li>
+								</ul>
+								
+							</div></li>
+							<li><div class="sub-item">
+								<input type="checkbox" id="pandin"/>
+								<img src="../images/arrow.png" class="arrow"><label for="pandin">Pandin</label>
+								
+								<ul>
+									<li><div class="sub-item">
+										<input type="checkbox" id="pandin1"/>
+										<img src="../images/arrow.png" class="arrow"><label for="pandin1">Dates</label>
+										
+										<ul>
+											<img id="pandinimg" src="../images/transparent.png" style="position:absolute;
+											width:640px;
+											height:640px;
+											top: 44px;
+											z-index: 1;
+											right: 650px;
+											opacity: 0.5;
+											opacity: 1;"/>
+											<button onclick="pandin2019()">2019</button><br><br>
+											<button onclick="pandin2022()">2022</button><br><br>
+										
+											<script>
+												var img = document.getElementById("pandinimg");
+												function pandin2019(){
+													document.getElementById("pandinimg").src = "../lakeimages/pandin2019.png"
+												}
+												function pandin2022(){
+													document.getElementById("pandinimg").src = "../lakeimages/pandin2022.png"
+												}
+											</script>
+										</ul>
+									</div></li>
+								</ul>
+								
+							</div></li>
+							<li><div class="sub-item">
+								<input type="checkbox" id="paoay"/>
+								<img src="../images/arrow.png" class="arrow"><label for="paoay">Paoay</label>
+								
+								<ul>
+									<li><div class="sub-item">
+										<input type="checkbox" id="paoay1"/>
+										<img src="../images/arrow.png" class="arrow"><label for="paoay1">Dates</label>
+										
+										<ul>
+											<img id="paoayimg" src="../images/transparent.png" style="position:absolute;
+											width:640px;
+											height:640px;
+											top: 44px;
+											z-index: 1;
+											right: 650px;
+											opacity: 0.5;
+											opacity: 1;"/>
+											<button onclick="paoay2017()">2017</button><br><br>
+											<button onclick="paoay2018()">2018</button><br><br>
+											<button onclick="paoay2019()">2019</button><br><br>
+											<button onclick="paoay2020()">2020</button><br><br>
+											<button onclick="paoay2021()">2021</button><br><br>
+											<button onclick="paoay2022()">2022</button><br><br>
+											<button onclick="paoay2023()">2023</button><br><br> 
+										
+											<script>
+												var img = document.getElementById("paoayimg");
+												function paoay2017(){
+													document.getElementById("paoayimg").src = "../lakeimages/paoay2017.png"
+												}
+												function paoay2018(){
+													document.getElementById("paoayimg").src = "../lakeimages/paoay2018.png"
+												}
+												function paoay2019(){
+													document.getElementById("paoayimg").src = "../lakeimages/paoay2019.png"
+												}
+												function paoay2020(){
+													document.getElementById("paoayimg").src = "../lakeimages/paoay2020.png"
+												}
+												function paoay2021(){
+													document.getElementById("paoayimg").src = "../lakeimages/paoay2021.png"
+												}
+												function paoay2022(){
+													document.getElementById("paoayimg").src = "../lakeimages/paoay2022.png"
+												}
+												function paoay2023(){
+													document.getElementById("paoayimg").src = "../lakeimages/paoay2023.png"
+												}
+											</script>
+										</ul>
+									</div></li>
+								</ul>
+								
+							</div></li>
+							<li><div class="sub-item">
+								<input type="checkbox" id="sampaloc"/>
+								<img src="../images/arrow.png" class="arrow"><label for="sampaloc">Sampaloc</label>
+								
+								<ul>
+									<li><div class="sub-item">
+										<input type="checkbox" id="sampaloc1"/>
+										<img src="../images/arrow.png" class="arrow"><label for="sampaloc1">Dates</label>
+										
+										<ul>
+											<img id="sampalocimg" src="../images/transparent.png" style="position:absolute;
+											width:640px;
+											height:640px;
+											top: 44px;
+											z-index: 1;
+											right: 650px;
+											opacity: 0.5;
+											opacity: 1;"/>
+											<button onclick="sampaloc2017()">2017</button><br><br>
+											<button onclick="sampaloc2018()">2018</button><br><br>
+											<button onclick="sampaloc2019()">2019</button><br><br>
+											<button onclick="sampaloc2020()">2020</button><br><br>
+										
+											<script>
+												var img = document.getElementById("sampalocimg");
+												function sampaloc2017(){
+													document.getElementById("sampalocimg").src = "../lakeimages/sampaloc2017.png"
+												}
+												function sampaloc2018(){
+													document.getElementById("sampalocimg").src = "../lakeimages/sampaloc2018.png"
+												}
+												function sampaloc2019(){
+													document.getElementById("sampalocimg").src = "../lakeimages/sampaloc2019.png"
+												}
+												function sampaloc2020(){
+													document.getElementById("sampalocimg").src = "../lakeimages/sampaloc2020.png"
+												}
+											</script>
+										</ul>
+									</div></li>
+								</ul>
+								
+							</div></li>
+							<li><div class="sub-item">
+								<input type="checkbox" id="tikub"/>
+								<img src="../images/arrow.png" class="arrow"><label for="tikub">Tikub</label>
+								
+								<ul>
+									<li><div class="sub-item">
+										<input type="checkbox" id="tikub1"/>
+										<img src="../images/arrow.png" class="arrow"><label for="tikub1">Dates</label>
+										
+										<ul>
+											<img id="tikubimg" src="../images/transparent.png" style="position:absolute;
+											width:640px;
+											height:640px;
+											top: 44px;
+											z-index: 1;
+											right: 650px;
+											opacity: 0.5;
+											opacity: 1;"/>
+											<button onclick="tikub2017()">2017</button><br><br>
+											<button onclick="tikub2018()">2018</button><br><br>
+											<button onclick="tikub2020()">2020</button><br><br>
+										
+											<script>
+												var img = document.getElementById("tikubimg");
+												function tikub2017(){
+													document.getElementById("tikubimg").src = "../lakeimages/tikub2017.png"
+												}
+												function tikub2018(){
+													document.getElementById("tikubimg").src = "../lakeimages/tikub2018.png"
+												}
+												function tikub2020(){
+													document.getElementById("tikubimg").src = "../lakeimages/tikub2020.png"
+												}
+											</script>
+										</ul>
+									</div></li>
+								</ul>
+								
+							</div></li>
+							<li><div class="sub-item">
+								<input type="checkbox" id="wood"/>
+								<img src="../images/arrow.png" class="arrow"><label for="wood">Wood</label>
+								
+								<ul>
+									<li><div class="sub-item">
+										<input type="checkbox" id="wood1"/>
+										<img src="../images/arrow.png" class="arrow"><label for="wood1">Dates</label>
+										
+										<ul>
+											<img id="woodimg" src="../images/transparent.png" style="position:absolute;
+											width:640px;
+											height:640px;
+											top: 44px;
+											z-index: 1;
+											right: 650px;
+											opacity: 0.5;
+											opacity: 1;"/>
+											
+											<button onclick="wood2019()">2019</button><br><br>
+											
+											<button onclick="wood2022()">2022</button><br><br>
+											<button onclick="wood2023()">2023</button><br><br> 
+										
+											<script>
+												var img = document.getElementById("woodimg");
+												
+												function wood2019(){
+													document.getElementById("woodimg").src = "../lakeimages/wood2019.png"
+												}
+												
+												function wood2022(){
+													document.getElementById("woodimg").src = "../lakeimages/wood2022.png"
+												}
+												function wood2023(){
+													document.getElementById("woodimg").src = "../lakeimages/wood2023.png"
+												}
+											</script>
+										</ul>
+									</div></li>
+								</ul>
+								
+							</div></li>
+							<li><div class="sub-item">
+								<input type="checkbox" id="yambo"/>
+								<img src="../images/arrow.png" class="arrow"><label for="yambo">Yambo</label>
+								
+								<ul>
+									<li><div class="sub-item">
+										<input type="checkbox" id="yambo1"/>
+										<img src="../images/arrow.png" class="arrow"><label for="yambo1">Dates</label>
+										
+										<ul>
+											<img id="yamboimg" src="../images/transparent.png" style="position:absolute;
+											width:640px;
+											height:640px;
+											top: 44px;
+											z-index: 1;
+											right: 650px;
+											opacity: 0.5;
+											opacity: 1;"/>
+											<button onclick="yambo2019()">2019</button><br><br>
+											<button onclick="yambo2022()">2022</button><br><br>
+										
+											<script>
+												var img = document.getElementById("yamboimg");
+												function yambo2019(){
+													document.getElementById("yamboimg").src = "../lakeimages/yambo2019.png"
+												}
+												function yambo2022(){
+													document.getElementById("yamboimg").src = "../lakeimages/yambo2022.png"
+												}
+											</script>
+										</ul>
+									</div></li>
+								</ul>
+								
+							</div></li>
+						</ul>
+						<script src="dropdown.js"></script>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="result" id="resultContainer">
+				<div class="divider"></div>
+				<div class="result__header">
+					<h3 class="headline">Result</h3>
+					<a href="#">Copy Code</a>
+				</div>
+				<pre id="output" class="codeblock"> here is your json </pre>
+			</div>
+		</div>
+	</form>
+</body>

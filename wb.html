@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1.0">
+
+    <title>LAKES SPATIAL ANALYSIS</title>
+    <link rel="stylesheet" href="wb.css">
+</head>
+<body>
+    <header id="header">
+
+        <ul>
+            <li><a href="main.html" class="active">Home</a></li>
+            <li><a href="maps/prototype.io-main/index.html">Map</a></li>
+            <li><a href="website2/index.html">Upload</a></li>
+            <div class="search-box">
+                <div class="row">
+                    <input type="search" value="" id="input-box" placeholder="Search Lake" 
+                    autocomplete="off" onchange="openPage()">
+                    <button><img src="search.png" ></button>
+                </div>
+                <script>
+                    function openPage(){
+                        var answer = document.getElementById("input-box").value;
+
+                        let a1 = /baloi/i
+                        let b1 = /Baloi/i
+                        let c1 = /baloi lake/i
+                        let d1 = /Baloi lake/i
+                        let e1 = /baloi Lake/i
+                        let f1 = /Baloi Lake/i
+                        let g1 = /BALOI LAKE/i
+                        if (a1.test(answer)  || b1.test(answer) || c1.test(answer) || d1.test(answer) || e1.test(answer) || f1.test(answer) || g1.test(answer)){
+                            window.open("/lakeabout/baloi.html","_self");
+                        }
+
+                        let a2 = /baao/i
+                        let b2 = /Baao/i
+                        let c2 = /baao lake/i
+                        let d2 = /Baao lake/i
+                        let e2 = /baao Lake/i
+                        let f2 = /Baao Lake/i
+                        let g2 = /BAAO LAKE/i
+                        if (a2.test(answer)  || b2.test(answer) || c2.test(answer) || d2.test(answer) || e2.test(answer) || f2.test(answer) || g2.test(answer)){
+                            window.open("/lakeabout/baao.html","_self");
+                        }
+
+                        let a3 = /buhi/i
+                        let b3 = /Buhi/i
+                        let c3 = /buhi lake/i
+                        let d3 = /Buhi lake/i
+                        let e3 = /buhi Lake/i
+                        let f3 = /Buhi Lake/i
+                        let g3 = /BUHI LAKE/i
+                        if (a3.test(answer)  || b3.test(answer) || c3.test(answer) || d3.test(answer) || e3.test(answer) || f3.test(answer) || g3.test(answer)){
+                            window.open("/lakeabout/buhi.html","_self");
+                        }
+
+                        let a4 = /bato/i
+                        let b4 = /Bato/i
+                        let c4 = /bato lake/i
+                        let d4 = /Bato lake/i
+                        let e4 = /bato Lake/i
+                        let f4 = /Bato Lake/i
+                        let g4 = /BATO LAKE/i
+                        if (a4.test(answer)  || b4.test(answer) || c4.test(answer) || d4.test(answer) || e4.test(answer) || f4.test(answer) || g4.test(answer)){
+                            window.open("/lakeabout/bato.html","_self");
+                        }
+
+                        let a5 = /crater/i
+                        let b5 = /Crater/i
+                        let c5 = /crater lake/i
+                        let d5 = /Crater lake/i
+                        let e5 = /crater Lake/i
+                        let f5 = /Crater Lake/i
+                        let g5 = /CRATER LAKE/i
+                        if (a5.test(answer)  || b5.test(answer) || c5.test(answer) || d5.test(answer) || e5.test(answer) || f5.test(answer) || g5.test(answer)){
+                            window.open("/lakeabout/crater.html","_self");
+                        }
+
+                        let a6 = /paoay/i
+                        let b6 = /Paoay/i
+                        let c6 = /paoay lake/i
+                        let d6 = /Paoay lake/i
+                        let e6 = /paoay Lake/i
+                        let f6 = /Paoay Lake/i
+                        let g6 = /PAOAY LAKE/i
+                        if (a6.test(answer)  || b6.test(answer) || c6.test(answer) || d6.test(answer) || e6.test(answer) || f6.test(answer) || g6.test(answer)){
+                            window.open("/lakeabout/paoay.html","_self");
+                        }
+
+                        let a7 = /uacon/i
+                        let b7 = /Uacon/i
+                        let c7 = /uacon lake/i
+                        let d7 = /Uacon lake/i
+                        let e7 = /uacon Lake/i
+                        let f7 = /Uacon Lake/i
+                        let g7 = /UACON LAKE/i
+                        if (a7.test(answer)  || b7.test(answer) || c7.test(answer) || d7.test(answer) || e7.test(answer) || f7.test(answer) || g7.test(answer)){
+                            window.open("/lakeabout/uacon.html","_self");
+                        }
+
+                        let a8 = /wood/i
+                        let b8 = /Wood/i
+                        let c8 = /wood lake/i
+                        let d8 = /Wood lake/i
+                        let e8 = /wood Lake/i
+                        let f8 = /Wood Lake/i
+                        let g8 = /WOOD LAKE/i
+                        if (a8.test(answer)  || b8.test(answer) || c8.test(answer) || d8.test(answer) || e8.test(answer) || f8.test(answer) || g8.test(answer)){
+                            window.open("/lakeabout/wood.html","_self");
+                        }
+
+                        let a9 = /dapao/i
+                        let b9 = /Dapao/i
+                        let c9 = /dapao lake/i
+                        let d9 = /Dapao lake/i
+                        let e9 = /dapao Lake/i
+                        let f9 = /Dapao Lake/i
+                        let g9 = /DAPAO LAKE/i
+                        if (a9.test(answer)  || b9.test(answer) || c9.test(answer) || d9.test(answer) || e9.test(answer) || f9.test(answer) || g9.test(answer)){
+                            window.open("/lakeabout/dapao.html","_self");
+                        }
+
+                        let a10 = /mapanuepe/i
+                        let b10 = /Mapanuepe/i
+                        let c10 = /mapanuepe lake/i
+                        let d10 = /Mapanuepe lake/i
+                        let e10 = /mapanuepe Lake/i
+                        let f10 = /Mapanuepe Lake/i
+                        let g10 = /MAPANUEPE LAKE/i
+                        if (a10.test(answer)  || b10.test(answer) || c10.test(answer) || d10.test(answer) || e10.test(answer) || f10.test(answer) || g10.test(answer)){
+                            window.open("/lakeabout/mapanuepe.html","_self");
+                        }
+
+                        let a11 = /danao/i
+                        let b11 = /Danao/i
+                        let c11 = /danao lake/i
+                        let d11 = /Danao lake/i
+                        let e11 = /danao Lake/i
+                        let f11 = /Danao Lake/i
+                        let g11 = /DANAO LAKE/i
+                        if (a11.test(answer)  || b11.test(answer) || c11.test(answer) || d11.test(answer) || e11.test(answer) || f11.test(answer) || g11.test(answer)){
+                            window.open("/lakeabout/danao.html","_self");
+                        }
+
+             
+
+                    }
+                </script>
+                <div class="result-box">
+                    <ul>
+
+
+                    </ul>
+                </div>
+        </ul>
+    </header>
+    <img src="icon2.png" alt="icon" class="logo"> 
+    <Section>
+        
+        <img src="/images/bird1.png" id="bird1">
+        <div class="bird2">
+            <img src="/images/bird2.png" id="bird2">
+        </div>
+        <img src="/images/forest1.png" id="forest">
+        
+        <h2 id="text"><font color = "green">W</font>eb <font color="green">D</font>evelopers<br></h2>
+        <img src="lakewater.png" id="water">
+    </Section>
+    <div class="sec">
+        <div class="webdev">
+            <ul>
+            <li><img class="Ana" src="images/1st.jpg">
+            <p>Ana Nicole L. Ramilo
+            <br><br>
+            Email: ananicoleramilo@gmail.com
+            <br><br>
+            Contact Number: 097072873</p></li>
+            <br><br>
+            <li><img class="Gab" src="images/2nd.png">
+            <p>Gabriel Carlos N. Reyes
+            <br><br>
+            Email: gabriel.carlos.n.reyes@gmail.com
+            <br><br>
+            Contact Number: 09513516628</p></li>
+            <br><br>
+            <li><img class="Ej" src="images/3rd.png">
+            <p>Ej L. Erasga
+            <br><br>
+            Email: ejerasga12@gmail.com
+            <br><br>
+            Contact Number: 09654073894</p></li>
+        </div>
+    
+    <script>
+        let text = document.getElementById('text');
+        let bird1 = document.getElementById('bird1');
+        let bird2 = document.getElementById('bird2');
+        let btn = document.getElementById('btn');
+        let rocks = document.getElementById('rocks');
+        let forest = document.getElementById('forest');
+        let water = document.getElementById('water');
+        let header = document.getElementById('header');
+        
+        window.addEventListener('scroll', function() {
+            let value = window.scrollY;
+            
+            text.style.top = 50 + value * -.1 + '%';
+            bird2.style.top = value * -1.5 + 'px';
+            bird2.style.left = value * 2 + 'px';
+            bird1.style.top = value * -1.5 + 'px';
+            bird1.style.left = value * -5 + 'px';
+            btn.style.marginTop = value * 1.5 + 'px';
+            rocks.style.top = value * -.12 + 'px';
+            forest.style.top = value * .25 + 'px';
+            header.style.top = value * .5 + 'px';
+        })
+    </script>
+    
+</body>
+</body>
+</html>
+

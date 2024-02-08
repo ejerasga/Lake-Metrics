@@ -1,0 +1,250 @@
+:root {
+    --primary: #094b65;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', sans-serif;
+}
+
+body {
+    overflow-x:hidden;
+    background: #fff;
+    min-height: 100vh;
+}
+
+#header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 2em;
+    text-decoration: none;
+    width: 10%;
+    height: 10%;
+}
+
+#header ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header ul li {
+    list-style: none;
+    margin-left: 20px;
+    left: 100px;
+}
+
+#header ul li a {
+    text-decoration: none;
+    padding: 6px 15px;
+    color: var(--primary);
+    border-radius: 20px;
+    
+}
+
+#header ul li a:hover,
+#header ul li a.active {
+    background: var(--primary);
+    color: #fff;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section::before {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, var(--primary), transparent);
+    z-index: 10;
+}
+
+section img {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    pointer-events: none;
+}
+.bird1{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    bottom: 60px;
+}
+.bird2{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    bottom: 100px;
+}
+section #text {
+    position: absolute;
+    color: var(--primary);
+    font-size: 10vw;
+    text-align: center;
+    line-height: .30em;
+    font-family: 'Times New Roman';
+    transform: translatey(-50%);
+    bottom: 100px;
+    height: 38vh;
+
+}
+
+section #text span {
+    font-size: .20em;
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+
+#btn {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 30px;
+    background: #fff;
+    color: var(--primary);
+    font-size: 1.2em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    border-radius: 40px;
+    transform: translatey(100px);
+}
+
+.sec {
+    position: relative;
+    padding: 100px;
+    background: var(--primary);
+}
+
+.sec h2 {
+    font-size: 3.5em;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.sec p {
+    font-size: 1.2em;
+    color: #fff;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+footer {
+    position: relative;
+    padding: 0px 100px;
+    background: var(--primary);
+}
+
+footer p {
+    text-decoration: none;
+    color: #fff;
+}
+.search-box{
+    
+    background: #c4c4c438;
+    margin: 18px auto 0;
+    border-radius: 10px;
+    padding-left: 100px;
+    position: absolute;
+    left: 1100px;
+    height: 40px;
+    bottom: 25px;
+    width: 200px;
+    
+}
+.row{
+    display: flex;
+    align-items: center;
+    height: 30px;
+    position: absolute;
+    bottom: 5px;
+    left: 150px;
+    justify-content: center;
+}
+#input-box{
+    position: absolute;
+    background:#ffffff49;
+}
+
+input{
+    flex: 1;
+    background: #ffffff49;
+    border:0;
+    outline: 0;
+    font-size: 17px;
+    color: #333;
+    height: 50px;
+
+}
+button{
+    background: transparent;
+    border: 0;
+    outline: 0;
+    font-size: 30px;
+    color: #555;
+    cursor: pointer;
+    position: relative;
+    max-width: 10px;
+    left: 10px;
+
+
+}
+::placeholder{
+    color: #555;
+    
+}
+
+
+
+#lakeimages {
+    display: flex;
+    gap: 4vmin;
+    position: absolute;
+    left: 50%;
+    top: 220%;
+    transform: translate(0%, -50%); 
+    user-select: none; /* -- Prevent image highlighting -- */
+}
+
+#lakeimages > .image {
+    width: 40vmin;
+    height: 56vmin;
+    object-fit: cover;
+    object-position: 100% center;
+    border-radius: 10px;
+}
+.sec ul li a{
+    text-decoration: none;
+    color: #fff;
+    
+}
