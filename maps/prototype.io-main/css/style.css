@@ -1,0 +1,8 @@
+.menubar{
+    position: absolute;
+    background: black;
+    height: 80px;
+    width: 100%;
+    align-items: center;
+
+}
